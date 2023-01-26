@@ -28,6 +28,23 @@
                 </div>
             @enderror
         </div>
+         <div class="mb-3">
+            <label for="" class="form-label">Categories</label>
+            <select name="category_id" id="">
+                <option value="">Seleziona la categoria</option>
+                @foreach ($categories as $elem)
+                <option value="{{$elem->id}}">
+                    {{$elem->name}}
+                </option>
+
+                @endforeach
+            </select>
+
+        </div>
+
+
+
+
         <button type="submit" class="btn btn-primary">Crea</button>
     </form>
 @endsection

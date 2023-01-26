@@ -10,6 +10,7 @@
                     Title
                 </th>
                 <th scope="col">Body</th>
+                <th scope="col">Category</th>
                 <th scope="col">actions</th>
             </tr>
         </thead>
@@ -23,12 +24,20 @@
                         </a>
                     </td>
                     <td>{{ $elem->body }}</td>
+                    <td>
+                        @if ($elem->category)
+                            {{ $elem->category['name'] }}
+                        @else
+                            null
+                        @endif
+
+                    </td>
                     <td class="justify-content-center">
                         <a class="" href="{{ route('admin.posts.edit', $elem->id) }}">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
 
-                        <form action="{{ route('admin.posts.destroy', $elem->id)}}" method="POST">
+                        <form action="{{ route('admin.posts.destroy', $elem->id) }}" method="POST">
 
                             @csrf
                             @method('DELETE')
